@@ -2,6 +2,8 @@ const express = require('express')
 const bodyParser  = require('body-parser');
 const cors = require('cors');
 const app = express()
+var os = require('os')
+var fs = require('fs')
 var port = 8080
 const host = '127.0.0.1'
 
@@ -85,6 +87,24 @@ app.post('/simulation/pause', (req, res) => {
 		simulation.playing = false
 	}
 	res.status(200).send('Simulation paused')
+})
+
+app.post('/pythonScript', (req, res) => {
+	// Fetch data from the request
+	var data = req.body
+	// Build the assignation lines for the parameters
+	var content = "initial_angular_offset = " + data.initial_angular_offset + os.EOL + "mass = " + data.mass + os.EOL + "string_length = " + data.string_length + os.EOL + "maximum_wind_factor = " + data.maximum_wind_factor + os.EOL
+
+	// Read the rest of the python template
+	file = fs.readFileSync("./template.py", "utf8")
+	
+	// Concatenate the two
+	content += file
+	
+	// Write the result in a python file
+	fs.writeFileSync("simulation.py", content)
+	
+	res.status(200).send("")
 })
 
 // Start the server on the specified port, and launch the main loop
