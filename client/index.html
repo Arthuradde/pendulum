@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pendulum</title>
+<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body id="body">
+
+<div id="banner" class="flex">
+  <div style="text-align:center"><h2>Pendulum</h2>
+  <h4>A coffee-powered simulation of pendulum physics</h4></div>
+</div>
+
+<div id="simulation">
+  <div id="canvases" class="flex">
+    <canvas id="canvas1" height="120" width="240"></canvas>
+    <canvas id="canvas2" height="120" width="240"></canvas>
+	<canvas id="canvas3" height="120" width="240"></canvas>
+	<canvas id="canvas4" height="120" width="240"></canvas>
+	<canvas id="canvas5" height="120" width="240"></canvas>
+  </div>
+</div>
+
+<div class="flex" style="padding:20px;justify-content:space-evenly">
+  <div id="wind" class="flex">
+    <label for="wind-o-meter" style="font-size:20px;padding-right:10px">Wind:</label>
+    <canvas id="wind-o-meter" height="20" width="50"></canvas>
+  </div>
+
+  <div id="ControlButtons" class="flex">
+    <button id="playButton" disabled>Play</button>
+    <button id="pauseButton" disabled>Pause</button>
+  </div>
+</div>
+  
+<div id="configuration">
+  <!-- To avoid repetition, only the first form has proper html content. On load, the first form's innerHTML will be copied to the other 4, with a slight change to parameters -->
+  <div id="forms" class="flex">
+    <form id="paramsForm1" class="paramsForm">
+      <p><label for="initial_angular_offset">Initial angular offset:</label>
+      <input type="number" size="10" id="initial_angular_offset" name="initial_angular_offset" value="25" step="5" min="-90" max="90"> °</p>
+      <p><label for="mass">Mass:</label>
+      <input type="number" size="10" id="mass" name="mass" value="30" step="5" min="5" max="100"> kg</p>
+      <p><label for="string_length">String length:</label>
+      <input type="number" size="10" id="string_length" name="string_length" value="40" step="5" min="5" max="100"> m</p>
+    </form>
+    <form id="paramsForm2" class="paramsForm"></form>
+    <form id="paramsForm3" class="paramsForm"></form>
+    <form id="paramsForm4" class="paramsForm"></form>
+    <form id="paramsForm5" class="paramsForm"></form>
+  </div>
+  
+  <form id="windForm" class="flex">
+    <p class="flex"><label for="maximum_wind_factor" style="padding-right:10px">Max wind factor:</label>
+    <input type="number" size="10" id="maximum_wind_factor" name="maximum_wind_factor" value="70" step="5" min="0" max="100"> m/s</p>
+  </form>
+  
+  <div id="configurationButtons" class="flex" style="padding-top:20px">
+    <button id="submitButton">Submit</button>
+    <button id="saveButton">Save configuration</button>
+  </div>
+
+</div>
+	
+<script src="scripts.js">
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

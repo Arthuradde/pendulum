@@ -1,0 +1,40 @@
+input[type=number] {
+  text-align: right;
+} 
+canvas {
+  border-style: solid none solid none;
+}
+#canvas1 {
+  border-left-style: solid;
+}
+#canvas5 {
+  border-right-style: solid;
+}
+#wind-o-meter{
+  border-style: solid;
+}
+#pendulumCircle {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+form {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+p {
+  display: table-row;
+}
+label {
+  display: table-cell;
+}
+input {
+  display: table-cell;
+}
